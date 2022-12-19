@@ -2,8 +2,6 @@ package com.portfolio.db.Security.jwt;
 
 import com.portfolio.db.Security.Service.UserDetailsImpl;
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 public class JwtTokenFilter extends OncePerRequestFilter {
 
-    private final static Logger logger = LoggerFactory.getLogger(JwtEntryPoint.class);
+    private final static Logger logger = LoggerFactory.getLogger(JwtProvider.class);
 
     @Autowired
     JwtProvider jwtProvider;
@@ -35,7 +34,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
-        } catch (Exception e) {
+        } catch (UsernameNotFoundException e) {
             logger.error("Falló el método doFilterInternal");
         }
         filterChain.doFilter(request, response);
@@ -44,9 +43,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     private String getToken(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
-        if (header != null && header.startsWith("Bearer")) {
+        if (header != null && header.startsWith("Bearer")) 
             return header.replace("Bearer", "");
-        }
         return null;
     }
 }
