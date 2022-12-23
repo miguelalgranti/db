@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
-@CrossOrigin(origins = "https://portfolio-ap-ma.web.app")
+@CrossOrigin(origins = "**")
 public class PersonaController {
  @Autowired IPersonaService ipersonaService;
  
