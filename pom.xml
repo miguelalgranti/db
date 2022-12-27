@@ -98,16 +98,4 @@
             <version>2.7.5</version>
         </dependency>
     </dependencies>
-    <build>
-  <plugins>
-    <plugin>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-maven-plugin</artifactId>
-      <configuration>
-        <mainClass>com.portfolio.DbApplication</mainClass>
-      </configuration>
-    </plugin>
-  </plugins>
-</build>
-
 </project>
