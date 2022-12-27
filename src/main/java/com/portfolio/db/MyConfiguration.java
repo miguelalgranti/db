@@ -1,5 +1,5 @@
 
-/*package com.portfolio.db;
+package com.portfolio.db;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,8 +14,8 @@ public class MyConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4200");
+                registry.addMapping("/**").allowedOrigins("https://portfolio-ap-ma.web.app");
             }
         };
     }
-}*/
+}
