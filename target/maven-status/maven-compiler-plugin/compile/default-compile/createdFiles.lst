@@ -17,7 +17,6 @@ com/portfolio/db/Security/Dto/NuevoUsuario.class
 com/portfolio/db/Repository/RExperiencia.class
 com/portfolio/db/Security/Dto/JwtDto.class
 com/portfolio/db/Entity/Experiencia.class
-com/portfolio/db/MyConfiguration$1.class
 com/portfolio/db/Entity/Educacion.class
 com/portfolio/db/Service/ImpPersonaService.class
 com/portfolio/db/Security/Repository/iRolRepository.class
