@@ -1,1 +1,1 @@
-web: java -jar /Users/miguelalgranti/Desktop/db/target/db-0.0.1-SNAPSHOT.jar
+web: java -Dserver .port=$PORT -jar target/db-0.0.1-SNAPSHOT.jar
